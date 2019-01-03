@@ -11,3 +11,7 @@ RUN docker-php-ext-install -j$(nproc) iconv \
     && docker-php-ext-install mysqli \
     && docker-php-ext-install pdo_mysql \
     && docker-php-ext-install pdo 
+
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+COPY . /var/www/html/
+EXPOSE 80
